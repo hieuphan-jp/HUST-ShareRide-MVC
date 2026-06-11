@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUST ShareRide - Đi Chung Xe Máy Sinh Viên</title>
+    <title>HUST ShareRide</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="logo" onclick="handleMenuClick('Trang chủ')">ShareRide</div>
-        <nav class="nav-links">
-            <a href="#" onclick="handleMenuClick('Giới thiệu')">Giới thiệu</a>
-            <a href="#" onclick="handleMenuClick('Hướng dẫn')">Hướng dẫn</a>
-            <a href="#" onclick="handleMenuClick('Liên hệ')">Liên hệ</a>
-        </nav>
-        <div class="auth-buttons">
-            <button class="btn btn-secondary" onclick="handleAuth('Đăng ký')">Đăng ký</button>
-            <button class="btn btn-primary" onclick="handleAuth('Đăng nhập')">Đăng nhập</button>
+        <div class="navbar-container">
+            <div class="logo" onclick="handleMenuClick('Trang chủ')">ShareRide</div>
+            <nav class="nav-links">
+                <a href="#" onclick="handleMenuClick('Giới thiệu')">Giới thiệu</a>
+                <a href="#" onclick="handleMenuClick('Hướng dẫn')">Hướng dẫn</a>
+                <a href="#" onclick="handleMenuClick('Liên hệ')">Liên hệ</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-secondary" onclick="handleAuth('Đăng ký')">Đăng ký</button>
+                <button class="btn btn-primary" onclick="handleAuth('Đăng nhập')">Đăng nhập</button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
+    <main class="main-content-wrapper">
+        
         <section class="hero-section">
             <div class="hero-content">
                 <h1>Đi chung xe, chia sẻ chi phí, kết nối bạn bè!</h1>
                 <p>Nền tảng hỗ trợ sinh viên tìm kiếm bạn đồng hành trên các tuyến đường đến trường an toàn, tiết kiệm và tiện lợi.</p>
             </div>
             <div class="hero-image-container">
-                <img src="BK.jpg" alt="BANNER" class="hero-image">
+                <img src="BK.jpg" alt="HUST C1" class="hero-image">
             </div>
         </section>
 
@@ -37,22 +40,20 @@
             <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
                 <div class="form-group">
                     <label for="startPoint">Điểm bắt đầu:</label>
-                    <input type="text" id="startPoint" placeholder="Ví dụ: Bến xe Mỹ Đình, Ngõ 105 Doãn Kế Thiện..." required>
+                    <input type="text" id="startPoint" placeholder="Ví dụ: Bến xe Mỹ Đình..." required>
                 </div>
-
                 <div class="form-group">
                     <label for="endPoint">Điểm muốn tới:</label>
                     <input type="text" id="endPoint" placeholder="Ví dụ: Đại học Bách khoa Hà Nội..." required>
                 </div>
-
                 <div class="form-group">
                     <label for="departureTime">Thời gian bắt đầu đi:</label>
                     <input type="datetime-local" id="departureTime" required>
                 </div>
-
                 <button type="submit" class="btn btn-submit">Tìm kiếm / Đăng ký chuyến</button>
             </form>
         </section>
+
     </main>
 
     <script src="script.js"></script>
