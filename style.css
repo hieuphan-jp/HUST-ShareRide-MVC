@@ -1,9 +1,16 @@
-/* RESET */
+/* RESET & ĐỊNH HÌNH FONT GỐC CHO MÀN HÌNH KHỦNG */
+html {
+    /* Đẩy font cơ sở lên 24px (mặc định trình duyệt là 16px). 
+       Giúp toàn bộ hệ thống chữ dùng 'rem' bên dưới phóng to đồng loạt, 
+       hoàn hảo cho độ phân giải 3352 x 2085 px mà không bị vỡ hay co giãn khi kéo màn hình */
+    font-size: 24px; 
+}
+
 * {
     box-sizing: border-box;
 }
 
-html, body {
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -18,34 +25,36 @@ html, body {
 .navbar {
     width: 100%;
     background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 0.0625rem 0.25rem rgba(0,0,0,0.04); 
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .navbar-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    padding: 1.25rem 2.5rem; /* Giữ cố định khoảng cách sang trọng */
     width: 100%;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1.5rem; 
 }
 
 .navbar .logo {
-    font-size: clamp(1.2rem, 2vw, 1.6rem); /* 🔥 fluid font */
-    font-weight: 800;
+    /* CỐ ĐỊNH TO: ~48px trên màn hình của bạn, chữ cực dày và nét */
+    font-size: 2rem; 
+    font-weight: 900; 
     color: #0284c7;
     cursor: pointer;
+    letter-spacing: -0.03em; 
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 2rem; 
     flex-wrap: wrap;
 }
 
@@ -53,21 +62,23 @@ html, body {
     text-decoration: none;
     color: #64748b;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.05rem; /* CỐ ĐỊNH TO: ~25px rõ ràng */
 }
 
 .auth-buttons {
     display: flex;
-    gap: 10px;
+    gap: 1rem; 
     flex-wrap: wrap;
 }
 
 /* WRAPPER */
 .main-content-wrapper {
-    max-width: 1200px;
-    width: 100%;
-    margin: 3rem auto;
-    padding: 0 20px;
+    width: 100%; 
+    margin: 5rem auto; 
+    padding: 0 2.5rem; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* HERO */
@@ -75,38 +86,43 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 4.5rem; /* Khoảng thở cố định cực rộng rãi */
     flex-wrap: wrap;
-    margin-bottom: 3.5rem;
+    margin-bottom: 5rem;
+    width: 100%; 
 }
 
 .hero-content {
-    flex: 1 1 320px;
-    min-width: 0; /* 🔥 fix overflow text */
+    flex: 1 1 30rem; /* Tăng vùng chứa để gánh font chữ lớn */
+    min-width: 0;
 }
 
-/* 🔥 FIX FONT SIZE (đây là điểm bạn nghi đúng) */
+/* 🔥 FIX FONT SIZE CỐ ĐỊNH SIÊU BỀ THẾ */
 .hero-content h1 {
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    /* CỐ ĐỊNH KHỔNG LỒ: 3.5rem tương đương ~84px trên màn hình của bạn */
+    font-size: 3.5rem;
     color: #0f172a;
-    margin-bottom: 1rem;
-    line-height: 1.3;
+    margin-bottom: 1.75rem;
+    line-height: 1.15; 
     font-weight: 800;
     overflow-wrap: break-word;
+    letter-spacing: -0.02em; 
 }
 
 .hero-content p {
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    /* CỐ ĐỊNH TO: 1.35rem tương đương ~32px bộc lộ rõ Slogan */
+    font-size: 1.35rem;
     color: #475569;
+    line-height: 1.6;
 }
 
 /* IMAGE */
 .hero-image-container {
-    flex: 1 1 320px;
+    flex: 1 1 30rem; 
     min-width: 0;
-    border-radius: 12px;
+    border-radius: 1.5rem; /* Bo góc cố định lớn (~36px) cực kỳ mềm mại */
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.06); 
     background-color: #e2e8f0;
     aspect-ratio: 16 / 9;
 }
@@ -121,46 +137,49 @@ html, body {
 /* BOOKING */
 .booking-section {
     background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    padding: 3rem; /* Khung ruột form cố định rộng rãi */
+    border-radius: 1.5rem; 
+    box-shadow: 0 1.25rem 2.5rem -0.625rem rgba(0,0,0,0.05); 
     width: 100%;
 }
 
 .booking-section h2 {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    margin-bottom: 1.5rem;
-    border-left: 5px solid #0284c7;
-    padding-left: 12px;
+    /* CỐ ĐỊNH TO: ~48px cho tiêu đề khối nhận lịch */
+    font-size: 2rem;
+    margin-bottom: 2.25rem;
+    border-left: 0.5rem solid #0284c7; 
+    padding-left: 1.25rem; 
+    letter-spacing: -0.01em;
 }
 
 #bookingForm {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem; 
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.6rem;
 }
 
 .form-group input {
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 1rem;
+    padding: 1.125rem; 
+    border: 0.0625rem solid #cbd5e1; 
+    border-radius: 0.625rem; /* Bo góc input cố định ~15px */
+    font-size: 1.2rem; /* Chữ gõ trong ô to rõ ~29px */
     width: 100%;
 }
 
 /* BUTTONS */
 .btn {
-    padding: 10px 18px;
+    padding: 1rem 2rem; 
     border: none;
-    border-radius: 6px;
+    border-radius: 0.75rem; /* Nút bấm bo góc cố định dày dặn */
     cursor: pointer;
     font-weight: 600;
+    font-size: 1.1rem; /* Chữ trên nút ~26px */
 }
 
 .btn-primary {
@@ -176,15 +195,18 @@ html, body {
 .btn-submit {
     background-color: #10b981;
     color: white;
-    padding: 14px;
-    font-size: 1.05rem;
+    padding: 1.35rem; 
+    /* CỐ ĐỊNH TO: Nút submit lớn, chữ ~32px cực kỳ hoành tráng */
+    font-size: 1.35rem;
     font-weight: 700;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 1rem; 
+    border-radius: 0.875rem; 
+    letter-spacing: 0.02em;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* RESPONSIVE (Chỉ giữ lại luật sắp xếp layout khi thu màn hình, chữ không bị đổi size) */
+@media (max-width: 64rem) { 
     .navbar-container {
         flex-direction: column;
         align-items: flex-start;
