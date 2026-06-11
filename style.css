@@ -1,15 +1,19 @@
-/* RESET TẬN GỐC - Ép body chiếm toàn bộ màn hình */
+/* RESET CƠ BẢN */
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh; /* Chiều cao tối thiểu bằng 100% màn hình hiển thị */
+    min-height: 100vh;
     background-color: #f8fafc;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1e293b;
 }
 
-/* NAVBAR: Tràn viền 100% chiều ngang màn hình */
+/* NAVBAR */
 .navbar {
     width: 100%;
     background-color: #ffffff;
@@ -19,15 +23,15 @@ html, body {
     z-index: 100;
 }
 
-/* NAVBAR CONTAINER: Giữ nội dung menu nằm trong khung viền đẹp, không bị dính sát ra mép màn hình lớn */
 .navbar-container {
     max-width: 1200px;
-    margin: 0 auto; /* Căn giữa */
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 20px; /* Tạo khoảng cách đệm hai bên */
+    padding: 1.2rem 20px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .navbar .logo {
@@ -40,6 +44,7 @@ html, body {
 .nav-links {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -51,28 +56,31 @@ html, body {
 .auth-buttons {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
-/* WRAPPER NỘI DUNG CHÍNH: Căn giữa khối nội dung bên dưới */
+/* WRAPPER */
 .main-content-wrapper {
     max-width: 1200px;
     width: 100%;
-    margin: 3rem auto; /* Trên dưới cách 3rem, trái phải tự động căn giữa */
+    margin: 3rem auto;
     padding: 0 20px;
 }
 
-/* HERO SECTION: Chia tỷ lệ hợp lý */
+/* HERO SECTION */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 40px;
     margin-bottom: 3.5rem;
-    width: 100%; /* Đảm bảo chiếm hết chiều ngang wrapper */
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .hero-content {
-    flex: 1; /* Chiếm 1 nửa */
+    flex: 1 1 320px;
+    min-width: 280px;
 }
 
 .hero-content h1 {
@@ -83,29 +91,31 @@ html, body {
     font-weight: 800;
 }
 
-/* KHUNG ẢNH C1: Fix cứng kích thước linh hoạt bằng flex */
+/* HERO IMAGE */
 .hero-image-container {
-    flex: 1; /* Chiếm 1 nửa còn lại */
-    height: 320px; /* Chiều cao cố định cho đẹp */
+    flex: 1 1 320px;
+    min-width: 280px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     background-color: #e2e8f0;
+    aspect-ratio: 16 / 9;
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ép ảnh tự co giãn đầy khung hình mà không méo */
+    object-fit: cover;
+    display: block;
 }
 
-/* FORM ĐẶT XE */
+/* BOOKING SECTION */
 .booking-section {
     background-color: #ffffff;
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-    width: 100%; /* Tràn đều khung wrapper */
+    width: 100%;
 }
 
 .booking-section h2 {
@@ -133,9 +143,10 @@ html, body {
     border: 1px solid #cbd5e1;
     border-radius: 6px;
     font-size: 1rem;
-    width: 100%; /* Ô input rộng bằng 100% thẻ chứa */
+    width: 100%;
 }
 
+/* BUTTONS */
 .btn {
     padding: 10px 20px;
     border: none;
@@ -144,8 +155,16 @@ html, body {
     font-weight: 600;
 }
 
-.btn-primary { background-color: #0284c7; color: white; }
-.btn-secondary { background-color: #f1f5f9; color: #334155; }
+.btn-primary {
+    background-color: #0284c7;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
 .btn-submit {
     background-color: #10b981;
     color: white;
@@ -156,18 +175,19 @@ html, body {
     margin-top: 10px;
 }
 
-/* RESPONSIVE: Khi màn hình nhỏ (Mobile) */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: column;
         gap: 12px;
     }
+
     .hero-section {
-        flex-direction: column; /* Chuyển thành hàng dọc */
+        flex-direction: column;
         text-align: center;
-        gap: 30px;
     }
-    .hero-image-container {
-        width: 100%;
+
+    .hero-content h1 {
+        font-size: 2rem;
     }
 }
